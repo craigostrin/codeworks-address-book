@@ -23,6 +23,16 @@ body {
     width: var(--page-width);
 
     margin-top: 20px;
+    padding: 20px;
     min-height: 100vh;
     background-color: lightskyblue;
+}
+
+#content > * {
+    outline: 1px dashed blue;
+}
+
+/**** CONTACT PAGE ****/
+#back-button {
+    align-self: flex-start;
 }
