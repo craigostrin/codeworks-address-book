@@ -19,21 +19,42 @@ $("button#add-contact").click( () => {
 $("button#submit-new-contact").click( () => {
 
     // check that at least one of fname, lname, or phone is filled
-    // grab all values that were filled and put them in variables to use with createNewContact() v
+    let fname = $("#fname").val();
+    let lname = $("#lname").val();
+    let phone = $("#phone").val();
 
-    // create new Contact object with unique id
-    /* let uID = createNewContact(....);
-        if(uID){
-        window.location = "contacts/contact.html"
-        populateContactPage(uID);
+    if (!fname && !lname && !phone){
+        alert("Please enter a name or phone number.");
+        return;
     }
-    */
+
+    let address = $("#address").val();
+    let unit    = $("#unit").val();
+    let city    = $("#city").val();
+    let state   = $("#state").val();
+    let zip     = $("#zip").val();
+    let country = $("#country").val();
+
+    let uID = createNewContact(fname, lname, phone, address, unit, city, state, zip, country);
+    if (uID){
+        window.location = "./contact.html"
+    } else {
+        console.error("Oops! Something went wrong.")
+    }
 });
 
+/*
+function populateContactPage(uID){
+    if (window.location != "./contact.html"){
+        console.error("Oops! Something went wrong.")
+        return;
+    }
+
+    $("#fname").val(contacts[uID].fname);
+} */
+
 const contacts = {};
-let _nextID = -1;
-
-
+let _prevID = 0; // Incremented then returned by getUniqueID(). First uniqueID will be 1, because 0 is falsy.
 
 
 function createNewContact(fname, lname="", phone="", address="", unit="", city="", state="", zip="", country="") {
@@ -60,6 +81,6 @@ class Contact {
 }
 
 function getUniqueID(){
-    _nextID++;
-    return _nextID;
+    _prevID++;
+    return _prevID;
 }
