@@ -6,32 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Contact</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="../address-book.js" defer></script>
 </head>
 <body>
 <div id="content">
     <div id="cancel-button"><a href="../index.html">Cancel</a></div>
-    <div id="name-container">
-        <h2>Name</h2>
-        <input type="text" placeholder="First">
-        <input type="text" placeholder="Last">
-    </div>
-    <div id="number-container">
-        <h2>Phone Number</h2>
-        <input type="tel" placeholder="(###) ###-####">
-    </div>
-    <div id="address-container">
-        <h2>Home Address</h2>
-        <div>
-            <input type="text" placeholder="Street Address">
-            <input type="text" placeholder="Unit/Ste">
+    <form name="contact-information">
+        <div id="name-container">
+            <h2>Name</h2>
+            <input type="text" id="fname" placeholder="First" aria-label="first name">
+            <input type="text" id="lname" placeholder="Last" aria-label="last name">
         </div>
-        <div>
-            <input type="text" placeholder="City">
-            <input type="text" placeholder="State/Province">
-            <input type="text" placeholder="Postal Code">
+        <div id="number-container">
+            <h2>Phone Number</h2>
+            <input type="tel" placeholder="(###) ###-####" aria-label="phone number">
         </div>
-        <div><input type="text" placeholder="Country"></div>
-    </div>
+        <div id="address-container">
+            <h2>Home Address</h2>
+            <div>
+                <input type="text" placeholder="Street Address" aria-label="street address">
+                <input type="text" placeholder="Unit/Ste" aria-label="unit number">
+            </div>
+            <div>
+                <input type="text" placeholder="City" aria-label="city">
+                <input type="text" placeholder="State/Province" aria-label="state or province">
+                <input type="text" placeholder="Zip/Postal Code" aria-label="zip or postal code">
+            </div>
+            <div><input type="text" placeholder="Country" aria-label="country"></div>
+        </div>
+    </form>
     <button id="submit-new-contact">Submit</button>
 </div>    
 </body>
